@@ -1,7 +1,7 @@
 import { Users, CircleDashed, CircleCheckBig, CircleX } from "lucide-react"
 
 const getDashboardData = async() => {
-  const response = await fetch('http://localhost:3000/api/admin_dashboard',
+  const response = await fetch(`${process.env.DOMAIN}/api/admin_dashboard`,
     {
       next: {
         revalidate: 0

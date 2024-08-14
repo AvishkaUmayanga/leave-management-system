@@ -7,7 +7,7 @@ const RejectLeave = ({leaveId}) => {
   const router = useRouter();
 
   const rejectLeave = async() => {
-    const response = await fetch('http://localhost:3000/api/reject',
+    const response = await fetch(`${process.env.DOMAIN}/api/reject`,
       {
         method: "POST",
         headers: {"Content-Type" : "application/json"},

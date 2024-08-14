@@ -7,7 +7,7 @@ const ApproveLeave = ({leaveId}) => {
   const router = useRouter();
   
   const approveLeave = async() => {
-    const response = await fetch('http://localhost:3000/api/approve',
+    const response = await fetch(`${process.env.DOMAIN}/api/approve`,
         {
             method: "POST",
             headers: {"Content-Type" : "application/json"},

@@ -6,7 +6,7 @@ const DeleteUser = ({userId}) => {
   const router = useRouter();
   
   const deleteUser = async() =>{
-    const response = await fetch('http://localhost:3000/api/delete_user',
+    const response = await fetch(`${process.env.DOMAIN}/api/delete_user`,
         {
             method: 'DELETE',
             headers: {'Content-Type' : 'application/json'},
