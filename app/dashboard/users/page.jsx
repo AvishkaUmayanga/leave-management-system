@@ -10,8 +10,7 @@ import {
   } from "@/app/components/ui/table";
 
   const getUsers = async() => {
-    const baseURL = process.env.DOMAIN || 'http://localhost:3000';
-    const response = await fetch(`${baseURL}/api/users`, {
+    const response = await fetch('/api/users', {
       next: {
           revalidate: 0
       }
