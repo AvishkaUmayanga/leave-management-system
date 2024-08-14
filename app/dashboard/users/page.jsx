@@ -10,13 +10,14 @@ import {
   } from "@/app/components/ui/table";
 
   const getUsers = async() => {
-    const response = await fetch(`${process.env.DOMAIN}/api/users`, {
-      next: {
-          revalidate: 0
-      }
-    });
-    const data = await response.json();
-    return data.allUsers;
+    try{
+      const response = await fetch(`${process.env.DOMAIN}/api/users`);
+      const data = await response.json();
+      return data.allUsers;
+    }
+    catch(error){
+        return null;
+    }
   };
 
 const UsersPage = async() => {
@@ -35,7 +36,7 @@ const UsersPage = async() => {
            </TableRow>
          </TableHeader>
          <TableBody>
-           {users?.map(user => (
+           {users && user.length > 0 ? (users.map(user => (
              <TableRow key={user._id} >
                <TableCell className="font-medium">{user.userName}</TableCell>
                <TableCell className="font-medium">{user.employeeId}</TableCell>
@@ -43,7 +44,7 @@ const UsersPage = async() => {
                <TableCell className="font-medium"><SetAdmin user={user}/></TableCell>
                <TableCell><DeleteUser userId={user._id}/></TableCell>
              </TableRow>
-           ))}
+           ))) : (<div>No data</div>)}
          </TableBody>
        </Table>
     </div>
