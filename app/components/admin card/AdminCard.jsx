@@ -1,13 +1,17 @@
 import { Users, CircleDashed, CircleCheckBig, CircleX } from "lucide-react"
 
 const getDashboardData = async() => {
-  const response = await fetch(`${process.env.DOMAIN}/api/admin_dashboard`)
-  return response.json();
+  try{
+    const response = await fetch(`${process.env.DOMAIN}/api/admin_dashboard`)
+    return response.json();
+  }
+  catch(error){
+    return null;
+  }
 }
 
 const AdminCard = async() => {
   const dashboardData = await getDashboardData();
-  console.log(dashboardData);
   return (
     <>
     {dashboardData.map((data,index) => (
