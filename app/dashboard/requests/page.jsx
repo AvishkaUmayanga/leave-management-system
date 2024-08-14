@@ -10,9 +10,14 @@ import {
 } from "@/app/components/ui/table";
 
 const getLeaves = async() => {
-  const response = await fetch(`${process.env.DOMAIN}/api/leaves`)
-  const data = await response.json();
-  return data.allLeaves;
+  try{
+    const response = await fetch(`${process.env.DOMAIN}/api/leaves`)
+    const data = await response.json();
+    return data.allLeaves;
+  }
+  catch(error){
+    return null;
+  }
 }
 
 const Requests = async() => {
