@@ -10,7 +10,7 @@ import {
 } from "@/app/components/ui/table";
 
 const getLeaves = async() => {
-  const response = await fetch(`${process.env.DOMAIN}/api/leaves`)
+  const response = await fetch('https://leave-management-system-git-master-avishkas-projects-c8bbcdb6.vercel.app/api/leaves')
   const data = await response.json();
   return data.allLeaves;
 }
