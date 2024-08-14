@@ -10,7 +10,7 @@ import {
   } from "@/app/components/ui/table";
 
   const getUsers = async() => {
-    const response = await fetch('/api/users', {
+    const response = await fetch(`${process.env.DOMAIN}/api/users`, {
       next: {
           revalidate: 0
       }
@@ -35,7 +35,7 @@ const UsersPage = async() => {
            </TableRow>
          </TableHeader>
          <TableBody>
-           {users.map(user => (
+           {users?.map(user => (
              <TableRow key={user._id} >
                <TableCell className="font-medium">{user.userName}</TableCell>
                <TableCell className="font-medium">{user.employeeId}</TableCell>
