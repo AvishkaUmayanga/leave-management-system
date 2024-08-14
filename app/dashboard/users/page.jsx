@@ -10,7 +10,7 @@ import {
   } from "@/app/components/ui/table";
 
   const getUsers = async() => {
-    const response = await fetch(`${process.env.DOMAIN}/api/users`, {
+    const response = await fetch('https://leave-management-system-git-master-avishkas-projects-c8bbcdb6.vercel.app/api/users', {
       next: {
           revalidate: 0
       }
