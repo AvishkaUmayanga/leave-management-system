@@ -52,7 +52,7 @@ const Requests = async() => {
                 <RejectLeave leaveId={request._id}/>
               </TableCell>
             </TableRow>
-          ))) : (<div> No data</div>}
+          ))) : (<div> No data</div>)}
         </TableBody>
       </Table>
     </div>
