@@ -33,7 +33,7 @@ const Requests = async() => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {requsts?.map((request) => (
+          {requsts && requsts.lenght > 0 ? (requsts.map((request) => (
             <TableRow key={request._id}>
               <TableCell className="font-medium">{request.employeeId}</TableCell>
               <TableCell className="font-medium">{formatDate(request.startDate)}</TableCell>
@@ -52,7 +52,7 @@ const Requests = async() => {
                 <RejectLeave leaveId={request._id}/>
               </TableCell>
             </TableRow>
-          ))}
+          ))) : (<div> No data</div>}
         </TableBody>
       </Table>
     </div>
