@@ -10,7 +10,7 @@ import {
 } from "@/app/components/ui/table";
 
 const getLeaves = async() => {
-  const response = await fetch('/api/leaves')
+  const response = await fetch(`${process.env.DOMAIN}/api/leaves`)
   const data = await response.json();
   return data.allLeaves;
 }
@@ -33,7 +33,7 @@ const Requests = async() => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {requsts.map((request) => (
+          {requsts?.map((request) => (
             <TableRow key={request._id}>
               <TableCell className="font-medium">{request.employeeId}</TableCell>
               <TableCell className="font-medium">{formatDate(request.startDate)}</TableCell>
