@@ -10,7 +10,7 @@ import {
 } from "@/app/components/ui/table";
 
 const getLeaves = async() => {
-  const response = await fetch(`${process.env.DOMAIN}/api/leaves`, {
+  const response = await fetch('/api/leaves', {
     next: {
       revalidate: 0
     }
